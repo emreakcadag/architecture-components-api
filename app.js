@@ -3,7 +3,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./feature/index/route');
+const indexRouter = require('./feature/index/route/index');
+const emreRouter = require('./feature/index/route/emreRouter');
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/emre', emreRouter);
 
 module.exports = app;

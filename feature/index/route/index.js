@@ -78,5 +78,11 @@ router.post("/main2", async (req, res, next) => {
     });
 });
 
+router.post("/main3", async (req, res, next) => {
+  res.json({
+    "emre": "sadsad"
+  })
+});
+
 module.exports = router;
 // module.exports.indexFunc = indexFunc;
