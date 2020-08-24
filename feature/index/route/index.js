@@ -33,10 +33,10 @@ const dialogBox = new DialogBox(
   "Dialog Description",
   false,
   [
-    new ButtonModel("Ok", "Theme1", "Action1"),
-    new ButtonModel("Cancel", "Theme2", "Action2")
+    new ButtonModel("OK", "Theme1", "request"),
+    new ButtonModel("Navigate", "Theme2", "navigate")
   ]
-).getNamedJsonObject()
+).getNamedJsonObject();
 
 /* GET home page.
 router.get('/', async (req, res, next) => {
@@ -54,6 +54,7 @@ router.post("/main", async (req, res, next) => {
       } else {
         dialogBox.dialogBox.title = nasaBody.title;
         dialogBox.dialogBox.description = nasaBody.explanation;
+        dialogBox.dialogBox.isCancelable = req.body.isCancelable;
         const result = req.body.showDialog ? Object.assign(nasaBody, dialogBox) : nasaBody;
         console.log(result);
         res.send(result);
@@ -71,6 +72,7 @@ router.post("/main2", async (req, res, next) => {
       } else {
         dialogBox.dialogBox.title = "Bir hata oluştu";
         dialogBox.dialogBox.description = "Hata description, showDialog flag'ine göre response body içinde hata mesajı gönderilir.";
+        dialogBox.dialogBox.isCancelable = req.body.isCancelable;
         const result = req.body.showDialog ? Object.assign(nasaBody, dialogBox) : nasaBody;
         console.log(result);
         res.send(result);
